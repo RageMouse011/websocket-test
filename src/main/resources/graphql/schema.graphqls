@@ -1,0 +1,22 @@
+type Query {
+    getAllCities: [City]
+    cityById(id : ID!): City
+}
+
+type City {
+    id: ID
+    name: String
+    population: Int
+    area: Float
+}
+
+type Mutation{
+    createNewCity(city:CityInput):City
+
+}
+
+input CityInput{
+    name: String
+    population: Int
+    area: Float
+}

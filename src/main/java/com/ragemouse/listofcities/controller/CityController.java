@@ -2,12 +2,14 @@ package com.ragemouse.listofcities.controller;
 
 import com.ragemouse.listofcities.entity.City;
 import com.ragemouse.listofcities.service.CityServiceImp;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -21,7 +23,7 @@ public class CityController {
         this.cityServiceImp = cityServiceImp;
     }
 
-    @GetMapping(value="")
+    @GetMapping(value="/all")
     public ResponseEntity<Iterable<City>> getAllCities() {
         return new ResponseEntity<>(cityServiceImp.allCities(), HttpStatus.OK);
     }
